@@ -5,7 +5,7 @@ const PeronData = (props) => {
     const { userId } = useParams();
     const { data } = props;
     const userName = data[0]?.personData || [];
-    console.log(userName);
+
     return (
         <>
             <h2>User {userId} </h2>

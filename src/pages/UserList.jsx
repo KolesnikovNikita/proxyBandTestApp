@@ -5,8 +5,22 @@ import { useState } from 'react';
 const Main = (props) => {
     const users = props.data[0]?.personData || [];
     const [username, setUserName] = useState('');
+    const [sortOrder, setSortOrder] = useState('asc');
 
     const filteredUsers = users.filter((user) => user.name.toLowerCase().includes(username.toLowerCase().trim()));
+
+    const toggleSortOrder = () => {
+        const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+        setSortOrder(newSortOrder);
+    };
+
+    const sortedUsers = filteredUsers.sort((a, b) => {
+        if (sortOrder === 'asc') {
+            return a.name.localeCompare(b.name);
+        } else {
+            return b.name.localeCompare(a.name);
+        }
+    });
 
     const handleChange = (event) => {
         setUserName(event.target.value);
@@ -18,8 +32,9 @@ const Main = (props) => {
             <div>
                 <input type="text" value={username} onChange={handleChange} />
             </div>
+            <button onClick={toggleSortOrder}>Toggle Sort Order</button> {/* Кнопка для изменения порядка сортировки */}
             <ul>
-                {filteredUsers.map((user) => {
+                {sortedUsers.map((user) => {
                     return (
                         <li key={user.id}>
                             <Link to={`/user/${user.id}/personData`}>
