@@ -32,7 +32,8 @@ const Main = (props) => {
             <div>
                 <input type="text" value={username} onChange={handleChange} />
             </div>
-            <button onClick={toggleSortOrder}>Toggle Sort Order</button> {/* Кнопка для изменения порядка сортировки */}
+            <br />
+            <button onClick={toggleSortOrder}>Toggle Sort Order</button>
             <ul>
                 {sortedUsers.map((user) => {
                     return (
