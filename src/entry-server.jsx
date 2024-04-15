@@ -20,8 +20,6 @@ export async function render(url) {
 
     const { helmet } = helmetContext;
 
-    console.log(helmetContext);
-
     html += `<script>window.data = ${JSON.stringify(data)}</script>`;
     return { html, head: `${helmet.title.toString()} ${helmet.meta.toString()}` };
 }

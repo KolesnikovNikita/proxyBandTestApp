@@ -10,7 +10,11 @@ const PeronData = (props) => {
     return (
         <>
             <Helmet>
-                <title>User ID</title>
+                <title>User id info</title>
+                <meta
+                    name="description"
+                    content="Explore the profile of User {userId}. Discover insights, interests, and contributions from this community member."
+                />
             </Helmet>
             <h2>User {userId} </h2>
             {userName
