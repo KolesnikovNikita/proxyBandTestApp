@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Main = (props) => {
     const users = props.data[0]?.personData || [];
@@ -28,6 +29,14 @@ const Main = (props) => {
 
     return (
         <>
+            <Helmet>
+                <title> Users</title>
+                <meta
+                    name="description"
+                    content="Explore a diverse community of users and their profiles. Discover unique stories, interests, and connections."
+                />
+            </Helmet>
+
             <h1>Main Page</h1>
             <div>
                 <input type="text" value={username} onChange={handleChange} />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const PostContent = (props) => {
     const { userId } = useParams();
@@ -8,6 +9,13 @@ const PostContent = (props) => {
 
     return (
         <>
+            <Helmet>
+                <title>Posts</title>
+                <meta
+                    name="description"
+                    content="Dive into a world of engaging posts created by our community members. From insightful discussions to creative expressions, there's something for everyone."
+                />
+            </Helmet>
             <h2>User {userId} Posts</h2>
 
             <ul>

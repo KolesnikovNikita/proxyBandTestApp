@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const PeronData = (props) => {
     const { userId } = useParams();
@@ -8,6 +9,9 @@ const PeronData = (props) => {
 
     return (
         <>
+            <Helmet>
+                <title>User ID</title>
+            </Helmet>
             <h2>User {userId} </h2>
             {userName
                 .filter((person) => Number(userId) === person.id)
